@@ -10,10 +10,12 @@ const data = core.getInput('data');
 const headers = core.getInput('headers');
 
 console.info('endpoint', host + path);
+console.info('headers', headers);
 
 try {
   fs.existsSync(filePath);
   console.info('File found', filePath);
+  
 } catch (e) {
   return core.setFailed('ERROR: file not found: ' + filePath);
 }
