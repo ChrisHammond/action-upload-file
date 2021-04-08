@@ -7,6 +7,7 @@ const protocol = core.getInput('https') === 'true' ? 'https:' : 'http:';
 const path = core.getInput('path');
 const filePath = core.getInput('filePath');
 const data = core.getInput('data');
+const headers = core.getInput('headers');
 
 console.info('endpoint', host + path);
 
@@ -25,7 +26,7 @@ form.getLength(function (err, l) {
   console.info('Sending file, size:', l + 'b');
 });
 
-form.submit({host, protocol, path}, function (err, res) {
+form.submit({host, protocol, path, headers}, function (err, res) {
   if (err) {
     console.error(err);
     return core.setFailed('Request failed');
