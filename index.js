@@ -10,7 +10,7 @@ const dataval = core.getInput('data');
 const headers = core.getInput('headers');
 
 console.info('endpoint', hostval + pathval);
-console.info('headers', headers);
+console.info('headers', headersval);
 
 try {
   fs.existsSync(filePathval);
