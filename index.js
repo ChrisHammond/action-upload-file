@@ -7,7 +7,7 @@ const protocolval = core.getInput('https') === 'true' ? 'https:' : 'http:';
 const pathval = core.getInput('path');
 const filePathval = core.getInput('filePath');
 const dataval = core.getInput('data');
-const headers = core.getInput('headers');
+const headersval = core.getInput('headers');
 
 console.info('endpoint', hostval + pathval);
 console.info('headers', headersval);
