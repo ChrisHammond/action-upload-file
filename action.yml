@@ -17,6 +17,9 @@ inputs:
   data:
     description: 'Additional data you should want to send within the request (e.g. "{\"foo\":\"bar\"}")'
     required: false
+  headers:
+    description: 'Any http headers to include {''x-test-header'': ''test-header-value''}'
+    required: false
 outputs:
   response:
     description: 'The response from the server'
