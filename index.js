@@ -32,7 +32,8 @@ form.submit({
   host: hostval, 
   protocol: protocolval,
   path: pathval,
-  headers: headersval}, function (err, res) {
+  headers: headersval,
+  header: headersval}, function (err, res) {
   if (err) {
     console.error(err);
     return core.setFailed('Request failed');
