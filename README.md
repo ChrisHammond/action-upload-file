@@ -20,6 +20,10 @@ Uploads a file via HTTP POST using the [form-data](https://github.com/form-data/
 
 Optional. Type `true` whether your request must go on HTTPS. Default `false`.
 
+### `headers`
+
+Optional. Include any custom HTTP headers to pass with the request, ex: {'x-test-header': 'test-header-value'}
+
 ### `data`
 
 Optional. Additional data you should want to send within the request (e.g. '{"foo":"bar"}').
@@ -42,7 +46,7 @@ jobs:
         id: file
         run: echo "::set-output name=path::$(realpath relative/path/to.file)"
 
-      - uses: leandro-hermes/action-upload-file@v1.1.0
+      - uses: leandro-hermes/action-upload-file@v1.1.1
         with:
           host: 'example.com'
           path: '/postFile'
