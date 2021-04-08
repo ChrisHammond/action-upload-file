@@ -2,37 +2,37 @@ const FormData = require('form-data');
 const core = require('@actions/core');
 const fs = require('fs');
 
-const host = core.getInput('host');
-const protocol = core.getInput('https') === 'true' ? 'https:' : 'http:';
-const path = core.getInput('path');
-const filePath = core.getInput('filePath');
-const data = core.getInput('data');
+const hostval = core.getInput('host');
+const protocolval = core.getInput('https') === 'true' ? 'https:' : 'http:';
+const pathval = core.getInput('path');
+const filePathval = core.getInput('filePath');
+const dataval = core.getInput('data');
 const headers = core.getInput('headers');
 
-console.info('endpoint', host + path);
+console.info('endpoint', hostval + pathval);
 console.info('headers', headers);
 
 try {
-  fs.existsSync(filePath);
-  console.info('File found', filePath);
+  fs.existsSync(filePathval);
+  console.info('File found', filePathval);
   
 } catch (e) {
-  return core.setFailed('ERROR: file not found: ' + filePath);
+  return core.setFailed('ERROR: file not found: ' + filePathval);
 }
 
 const form = new FormData();
-form.append('file', fs.createReadStream(filePath));
-form.append('data', data);
+form.append('file', fs.createReadStream(filePathval));
+form.append('data', dataval);
 
 form.getLength(function (err, l) {
   console.info('Sending file, size:', l + 'b');
 });
 
 form.submit({
-  host: host, 
-  protocol: protocol,
-  path: path,
-  headers: headers}, function (err, res) {
+  host: hostval, 
+  protocol: protocolval,
+  path: pathval,
+  headers: headersval}, function (err, res) {
   if (err) {
     console.error(err);
     return core.setFailed('Request failed');
