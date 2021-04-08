@@ -7,7 +7,8 @@ const protocolval = core.getInput('https') === 'true' ? 'https:' : 'http:';
 const pathval = core.getInput('path');
 const filePathval = core.getInput('filePath');
 const dataval = core.getInput('data');
-const headersval = core.getInput('headers');
+const headersval = core.getInput('headers').split(':');
+
 
 console.info('endpoint', hostval + pathval);
 console.info('headers', headersval);
@@ -32,8 +33,7 @@ form.submit({
   host: hostval, 
   protocol: protocolval,
   path: pathval,
-  headers: headersval,
-  header: headersval}, function (err, res) {
+  headers: headersval}, function (err, res) {
   if (err) {
     console.error(err);
     return core.setFailed('Request failed');
