@@ -28,7 +28,11 @@ form.getLength(function (err, l) {
   console.info('Sending file, size:', l + 'b');
 });
 
-form.submit({host, protocol, path, headers}, function (err, res) {
+form.submit({
+  host: host, 
+  protocol: protocol,
+  path: path,
+  headers: headers}, function (err, res) {
   if (err) {
     console.error(err);
     return core.setFailed('Request failed');
