@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/leandro-hermes/action-upload-file#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.9.1",
     "form-data": "^3.0.0"
   }
 }
